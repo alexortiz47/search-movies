@@ -20,7 +20,8 @@ export class SearchForm extends Component {
         `)
             .then(res => res.json())
             .then(results => {
-                const { Search, totalResults } = results;
+                // Les asignamos por defecto unos valores para cuando la api nos devuelve undefined para cualquiera de ellos, y así no cambiamos el tipo de dato (array y string)
+                const { Search = [], totalResults = "0" } = results;
                 console.log({ Search, totalResults });
                 this.props.onResults(Search); // ejecutamos el método onResults que es una prop para pasarle al padre los resultados
             })
