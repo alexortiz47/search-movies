@@ -4,8 +4,14 @@ import PropTypes from 'prop-types';
 const API_KEY = '6f421a98';
 
 export class Detail extends Component {
+    // match es una prop de tipo objeto especial que nos da react-router para acceder a todos los parámetros (params) de la url, aunque también nos da otros datos (isExact, path, url)
     static propTypes = {
-        id: PropTypes.string,
+        match: PropTypes.shape({
+            params: PropTypes.object,
+            isExact: PropTypes.bool,
+            path: PropTypes.string,
+            url: PropTypes.string
+        }),
     }
 
     state = { movie: {} }
@@ -24,8 +30,8 @@ export class Detail extends Component {
     }
 
     componentDidMount() {
-        const { id } = this.props;
-        this._fetchMovie({ id });
+        const { movieId } = this.props.match.params;
+        this._fetchMovie({ id: movieId });
     }
 
     render() {
