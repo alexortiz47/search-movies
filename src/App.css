@@ -6,16 +6,38 @@
 .search-form-wrapper {
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .movies-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 16px;
+  justify-content: center;
+  padding: 25px 16px;
 }
 
 .movies-list-item {
   margin-bottom: 24px;
-  width: 48%;
-} 
+}
+
+@media only screen and (min-width: 600px) {
+  .movies-list {
+    justify-content: space-between;
+  }
+
+  .movies-list-item {
+    width: 48%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .movies-list-item {
+    width: 33%;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .movies-list-item {
+    width: 17%;
+  }
+}
